@@ -3,7 +3,7 @@ function getApiSrc(loc) {
 };
 
 function loadKR() {
-    $.getJSON("data/kr.json", (data) => {
+    $.getJSON("./data/kr.json", (data) => {
 
         const sel = $("<select></select>", {
             name: "wow"
@@ -33,22 +33,26 @@ function loadKR() {
     });
 }
 
+/**
+ * Load the data from the server.
+ * @param {String}} url 
+ */
 function loadJson(url) {
     try {
         $.getJSON(url,
             /**
              * @param {type} */
             (data) => {
-                var sys = data.sys;
-                var city = data.name;
-                var main = data.main;
-                var wmain = data.weather[0].main;
-                var w_id = data.weather[0].id;
-                var icon = data.weather[0].icon;
-                var country = sys.country;
-                var temp = main.temp;
-                var temp_min = main.temp_min;
-                var temp_max = main.temp_max;
+                const sys = data.sys;
+                const city = data.name;
+                const main = data.main;
+                const wmain = data.weather[0].main;
+                const w_id = data.weather[0].id;
+                const icon = data.weather[0].icon;
+                const country = sys.country;
+                const temp = main.temp;
+                const temp_min = main.temp_min;
+                const temp_max = main.temp_max;
 
                 $(".city").text(`${city}/${country}`);
                 $("p.icon").text(wmain);
@@ -68,6 +72,7 @@ function loadJson(url) {
     }
 };
 
+// 위치 정보 획득
 navigator.geolocation.getCurrentPosition((position) => {
     const lat = position.coords.latitude;
     const lng = position.coords.longitude;
@@ -77,7 +82,8 @@ navigator.geolocation.getCurrentPosition((position) => {
     loadKR();
 
 }, (error) => {
-    document.write("<h1>위치 정보 권한을 허용하여 주시기 바랍니다.</h1>");
+    loadJson(getApiSrc("Seoul"));
+    loadKR();
 });
 
 function update(dt) {
@@ -87,3 +93,24 @@ function update(dt) {
 }
 
 update();
+
+
+class App {
+    constructor() {
+
+    }
+
+    load(src) {
+        return new Promise((reslve, reject) => {
+
+        });
+    }
+
+    async loadData() {
+        await this.load().then(data => {
+
+        }).catch(err => {
+            console.warn(err);
+        })
+    }
+}
