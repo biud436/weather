@@ -171,10 +171,6 @@ article span {
         font-size: 1em;
     }
 
-    article img {
-        display: none;
-    }
-
     p[class*="article__weather"] {
         font-size: 0.5rem;
     }
