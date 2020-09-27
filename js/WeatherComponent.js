@@ -101,9 +101,13 @@ class WeatherComponent extends Component {
             const data = daily[index];
             const weather = data.weather;
 
-            const size = $(window).width() > 768 ? "4x": "2x";
+            let size = $(window).width() > 768 ? "@4x": "@2x";
+            
+            if($(window).width() < 480) {
+                size = "";
+            }
 
-            const img = $(`<img src="https://openweathermap.org/img/wn/${weather[0].icon}@${size}.png">`);
+            const img = $(`<img src="https://openweathermap.org/img/wn/${weather[0].icon}${size}.png">`);
             $(elem).append(img);
             
             this.initWithWindSpeed(index);
