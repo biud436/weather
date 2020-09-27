@@ -77,8 +77,8 @@ export default class App extends EventEmitter {
 
         // });
 
-        const lat = 126;
-        const lon = 37;
+        const lat = 37.532600;
+        const lon = 127.024612;
         const API = `f5f963901bc7a7df56b73323ca00ae47`;
         const lang = navigator.language.slice(-2, 2);
         const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API}&lang=${lang}`;
