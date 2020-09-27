@@ -79,6 +79,10 @@ article {
     position: relative;
 }
 
+article:hover {
+    background: linear-gradient(to bottom, #575757 0%,  #353535 99%, #4b4b4b 100%);
+}
+
 article span {
     font-weight: bold;
     font-size: 1.1em;
@@ -144,11 +148,34 @@ article span {
     right: calc(50px / 2);
 }
 
+.temperature-text {
+    position: absolute;
+    top: 1.5em;
+    right: 0.8em;
+    font-size: x-large;
+    font-weight: bold;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .temperature-text {
+        position: relative;
+        font-size: 1em;
+    }
+
+    article img {
+        display: none;
+    }
+
+    p[class*="article__weather"] {
+        font-size: 0.5rem;
     }
 }

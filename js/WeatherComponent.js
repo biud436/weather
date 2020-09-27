@@ -101,10 +101,10 @@ class WeatherComponent extends Component {
             const data = daily[index];
             const weather = data.weather;
 
-            const img = $(`<img src="https://openweathermap.org/img/wn/${weather[0].icon}@4x.png">`)
-            $(elem).append(img);
+            const size = $(window).width() > 768 ? "4x": "2x";
 
-            img.append(`<p>${this.getDegreeCelsius(data.temp.day)}°C</p>`)
+            const img = $(`<img src="https://openweathermap.org/img/wn/${weather[0].icon}@${size}.png">`);
+            $(elem).append(img);
             
             this.initWithWindSpeed(index);
         });        
@@ -137,6 +137,10 @@ class WeatherComponent extends Component {
 
         $("article img").eq(index)
             .after(windDegText, windSpeed, humidity, min, max, time);
+
+        $(`<p>${this.getDegreeCelsius(data.temp.day)}°C</p>`)
+            .addClass("temperature-text")
+            .appendTo($("article").eq(index))
 
         try {
             const waterDrop = new WaterDrop({fillRate: data.humidity * 0.01});
