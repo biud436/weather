@@ -1,88 +1,36 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='ko'>
 
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title></title>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-    <style>
-        * {
-            margin: 0;
-            font-weight: normal;
-
-        }
-        #weather_info {
-            position: relative;
-            width: 100%;
-            border: 1px solid #999;
-            padding: 10px;
-            background-color: #eee;
-            background: url(https://cdn.pixabay.com/photo/2020/09/01/06/00/sky-5534319_960_720.jpg) repeat;
-            background-size: cover;
-            color: white;
-        }
-
-        h1 {
-            background: #666;
-            padding: 10px;
-            font-size: 1.8em;
-            text-align: center;
-            opacity: 0.8;
-        }
-
-        section {
-            overflow: hidden;
-            color: #666;
-            text-shadow: 1px 1px 1px #999;
-            padding: 10px 20px;
-        }
-
-        section > .w_id {
-            text-align: left;
-            padding-left: 20px;
-        }
-        
-        section  > figure, section > .temp {
-            float: left;
-            width: 33.3%;
-        }
-
-        section > figure > img {
-            width: 80px;
-        }
-
-        section > .temp {
-            font-size: 3.4em;
-        }
-
-        aside {
-            overflow: hidden;
-        }
-
-        aside > p {
-            font-size: 1.8em;
-            text-align: right;
-        }
-
-
-    </style>
+    <script src="https://kit.fontawesome.com/a99df0f94f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div id="weather_info">
-        <h1 class="city"></h1>
-        <section>
-            <p class="icon"></p>
-            <figure class="icon"></figure>
-            <p class="temp"></p>
-            <aside>
-                <p class="temp_max"></p>
-                <p class="temp_min"></p>
-            </aside>
+    <div class="container">
+        <header class="city-field">
+            <div>%{0}</div>
+        </header>
+        <section class="weather-renderer">
+            <article>%{0}</article>
+            <article>%{0}</article>
+            <article>%{0}</article>
+            <article>%{0}</article>
+            <article>%{0}</article>
         </section>
+        <footer class="temperature-field">
+            <canvas id="main-canvas">
+                HTML5 캔버스를 지원하지 않는 브라우저입니다.
+            </canvas>
+        </footer>
     </div>
-    <script src="js/weather.js"></script>
+    <div id="darken"></div>
+    <div id="loading" class="spinner"></div>
+    <script type="module" src="js/index.js"></script>
 </body>
 
 </html>
