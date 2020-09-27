@@ -44,38 +44,66 @@ export default class App extends EventEmitter {
         this._weatherComponent = new WeatherComponent();
         this._weatherComponent.emit("added");        
 
-        navigator.geolocation.getCurrentPosition(position => {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            const API = `f5f963901bc7a7df56b73323ca00ae47`;
-            const lang = navigator.language.slice(-2, 2);
-            const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API}&lang=${lang}`;
+        const lat = 126;
+        const lon = 37;
+        const API = `f5f963901bc7a7df56b73323ca00ae47`;
+        const lang = navigator.language.slice(-2, 2);
+        const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API}&lang=${lang}`;
 
-            // JSON 파일을 로드합니다.
-            const loader = new JsonLoader(url);
-            loader.on("load", data => {
-                this._weatherComponent.emit("ready", data);  
+        // JSON 파일을 로드합니다.
+        const loader = new JsonLoader(url);
+        loader.on("load", data => {
+            this._weatherComponent.emit("ready", data);  
 
-                const temperatures = [];
-                const {daily} = data;
-                for(let i = 0; i < 5; i++) {
-                    temperatures.push(this._weatherComponent.getDegreeCelsius(daily[i].temp.day));
-                }
+            const temperatures = [];
+            const {daily} = data;
+            for(let i = 0; i < 5; i++) {
+                temperatures.push(this._weatherComponent.getDegreeCelsius(daily[i].temp.day));
+            }
 
-                this.initWithCharts(temperatures);
-                this.on("update", (dt) => this.update(dt));                
+            this.initWithCharts(temperatures);
+            this.on("update", (dt) => this.update(dt));                
 
-                $("#loading, #darken").hide();
+            $("#loading, #darken").hide();
 
-            });
-            loader.on("error", err => {
-                console.log("error");
-                console.warn(err);
-            });
-
-        }, error => {
-            this._weatherComponent.emit("error", error);
         });
+        loader.on("error", err => {
+            console.log("error");
+            console.warn(err);
+        });
+
+        // navigator.geolocation.getCurrentPosition(position => {
+        //     const lat = position.coords.latitude;
+        //     const lon = position.coords.longitude;
+        //     const API = `f5f963901bc7a7df56b73323ca00ae47`;
+        //     const lang = navigator.language.slice(-2, 2);
+        //     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API}&lang=${lang}`;
+
+        //     // JSON 파일을 로드합니다.
+        //     const loader = new JsonLoader(url);
+        //     loader.on("load", data => {
+        //         this._weatherComponent.emit("ready", data);  
+
+        //         const temperatures = [];
+        //         const {daily} = data;
+        //         for(let i = 0; i < 5; i++) {
+        //             temperatures.push(this._weatherComponent.getDegreeCelsius(daily[i].temp.day));
+        //         }
+
+        //         this.initWithCharts(temperatures);
+        //         this.on("update", (dt) => this.update(dt));                
+
+        //         $("#loading, #darken").hide();
+
+        //     });
+        //     loader.on("error", err => {
+        //         console.log("error");
+        //         console.warn(err);
+        //     });
+
+        // }, error => {
+        //     this._weatherComponent.emit("error", error);
+        // });
 
     }
 
