@@ -77,7 +77,7 @@ class ChartComponent extends Component {
         const maxTemperature = this._config.maxTemperature;
         const canvasHeight = this._canvas.height;
         const thod = Math.floor(canvasHeight/maxTemperature);
-        const y = Math.floor(thod * temperature);
+        const y = Math.floor(thod * (maxTemperature - temperature));
 
         return y;
     }
