@@ -16,7 +16,7 @@ export default class App extends EventEmitter {
         // 로딩바를 표시합니다.
         $("#loading, #darken").show();
 
-        // 날씨 데이터를 가져와 화면을 구성합니다.
+        // 날씨 데이터를 가져와 화면을
         this.initWithArticle();
     }
 

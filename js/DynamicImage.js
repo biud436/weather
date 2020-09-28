@@ -35,6 +35,7 @@ class WaterDrop extends Component {
 
     /**
      * 습도 이미지를 특정 색상으로 채웁니다.
+     * https://jsfiddle.net/e2fap608/
      */
     drawShape() {
         /**
@@ -52,13 +53,14 @@ class WaterDrop extends Component {
         ctx.translate(0.5, 0.5);
         ctx.beginPath();
         ctx.moveTo(0 - w, 0);
-        ctx.lineTo(0, 0 - (w - 2));
+
+        ctx.lineTo(0, 0 - (w));
         ctx.lineTo(0 + w, 0);
         ctx.arc(0, 0, w, 0, Math.PI);
         ctx.lineWidth = 4;
         ctx.closePath();
 
-        ctx.strokeStyle = "#4798E6";
+        ctx.strokeStyle = "#1F9FDE";
         ctx.stroke();
 
         ctx.restore();           
@@ -82,7 +84,7 @@ class WaterDrop extends Component {
 
         ctx.globalCompositeOperation = "source-over";
 
-        ctx.fillStyle = "#4798E6";
+        ctx.fillStyle = "#1F9FDE";
         ctx.fillRect(0, Math.floor(canvas.height * rate), canvas.width, canvas.height);
         ctx.fill();                
 
