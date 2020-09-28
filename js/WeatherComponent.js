@@ -56,7 +56,9 @@ class WeatherComponent extends Component {
         $(".city-field div").text(`${this._config.timezone}`);
 
         $("article").each((index, elem) => {
-            $(elem).text(this.getTimeString(days[index]));
+            $(elem)
+                .text("")
+                .append(`<p>${this.getTimeString(days[index])}</p>`);
         });
     }
 
