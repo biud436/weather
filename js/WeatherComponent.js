@@ -139,7 +139,7 @@ class WeatherComponent extends Component {
             .html(`<span>최고 기온</span> ${this.getDegreeCelsius(data.temp.max)}°C`)
 
         const time = $("<p></p>", {class: "article__weather-sunrize"})
-            .html(`<span>일출 시간</span> ${new Date(data.sunrise * 1000).toLocaleTimeString()}`)
+            .html(`<span>일출 시간</span> ${new Date(data.sunrise * 1000).toLocaleTimeString()}`);
 
         $("article img").eq(index)
             .after(windDegText, windSpeed, humidity, min, max, time);
