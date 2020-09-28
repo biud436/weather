@@ -100,6 +100,11 @@ class ChartComponent extends Component {
         return lines;
     }
 
+    /**
+     * 무한 스크롤링을 위한 캔버스 이미지 패턴을 생성합니다.
+     * 
+     * @param {{valid: Boolean, src: String}} pattern 
+     */
     drawChartPattern(pattern) {
         return new Promise((resolve, reject) => {
             if(!this._img) {

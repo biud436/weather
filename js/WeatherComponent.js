@@ -147,6 +147,7 @@ class WeatherComponent extends Component {
             .appendTo($("article").eq(index))
 
         try {
+            // 습도 이미지를 동적으로 직접 그려냅니다.
             const waterDrop = new WaterDrop({fillRate: data.humidity * 0.01});
             waterDrop.on("load", src => {
                 const img = new Image(50, 50);

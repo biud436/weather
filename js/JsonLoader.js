@@ -16,9 +16,11 @@ class JsonLoader extends Component {
             url: END_POINT_URL,
             dataType: "json",
             success: data => {
+                // 로드가 완료되면 등록된 로드 콜백 함수를 호출합니다.
                 this.emit("load", data);
             },
             error: err => {
+                // 로드에 실패하면 등록된 오류 콜백 함수를 호출합니다.
                 this.emit("error", err);
             }
         })

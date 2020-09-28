@@ -8,10 +8,16 @@ class WaterDrop extends Component {
         this._config = config;
     }
 
+    /**
+     * 멤버 변수를 초기화합니다.
+     */
     initMembers() {
         super.initMembers();
     }
 
+    /**
+     * 캔버스를 생성합니다.
+     */
     start() {
         this._canvas = $("<canvas />", {width: 50, height: 25});
         this._size = 50;
@@ -27,6 +33,9 @@ class WaterDrop extends Component {
         this.emit("load", canvas.toDataURL());        
     }
 
+    /**
+     * 습도 이미지를 특정 색상으로 채웁니다.
+     */
     drawShape() {
         /**
          * @type {HTMLCanvasElement}
@@ -55,6 +64,12 @@ class WaterDrop extends Component {
         ctx.restore();           
     }
 
+    /**
+     * 마스킹을 통해 습도 이미지를 fillRate 비율에 맞게 채웁니다.
+     * 
+     * @param {Boolean}} fill 
+     * @param {Number} rate 이 값은 0.0에서 1.0 사이의 실수입니다.
+     */
     drawBackground(fill, rate) {
         /**
          * @type {HTMLCanvasElement}
@@ -73,7 +88,9 @@ class WaterDrop extends Component {
 
         ctx.globalCompositeOperation = "source-in";
 
+        // 캔버스의 중심점을 중앙으로 옮깁니다.
         ctx.setTransform(1, 0, 0, 1, canvas.width / 2, canvas.height / 2);
+
         ctx.translate(0.5, 0.5);
         ctx.beginPath();
         ctx.moveTo(0 - w, 0);
@@ -107,6 +124,7 @@ class Arrow extends Component {
          */
         const canvas = this._canvas.get(0);
 
+        // 캔버스에 그려진 내용을 이미지로 내보냅니다.
         this.emit("load", canvas.toDataURL());   
     }
 
