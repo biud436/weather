@@ -48,7 +48,7 @@ class ChartComponent extends Component {
             // 프레임 업데이트 메서드를 이벤트 콜백에 등록합니다.
             this.on("update", (dt) => {
                 const {temperatures} = this._config;
-                this.drawLines(temperatures);            
+                this.drawLines(temperatures, dt);            
             });                 
     
         });
@@ -125,8 +125,9 @@ class ChartComponent extends Component {
      * 기온을 막대 차트 형식으로 그립니다.
      * 
      * @param {Number[]} temperatures 
+     * @param {Number} dt
      */
-    drawLines(temperatures) {
+    drawLines(temperatures, dt) {
 
         const ctx = this._canvas.getContext("2d");
         const {strokeStyle, lineWidth, font, 
@@ -150,6 +151,7 @@ class ChartComponent extends Component {
 
         // 이동 행렬을 통해 패딩 값을 설정합니다.
         // 이 값은 캔버스의 가로 길이를 10등분한 값입니다.
+
         ctx.setTransform(1, 0, 0, 1, this._canvas.width / padding, 0);
 
         // 안티 앨리어싱을 설정합니다.

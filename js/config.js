@@ -1,6 +1,6 @@
 const config = {
-    API_KEY: `Yb1nPGTAhklc%2B1Bz%2F7ejgbCGd2gnCt8hGr8RhkubFmCFCFDQKLAHdPc%2BLvdOZrRc9IS9D7k20vvLocUoDiTabQ%3D%3D`,
-    END_POINT_URL: 'http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst',
+    API_KEY: window.atob("WWIxblBHVEFoa2xjJTJCMUJ6JTJGN2VqZ2JDR2QyZ25DdDhoR3I4UmhrdWJGbUNGQ0ZEUUtMQUhkUGMlMkJMdmRPWnJSYzlJUzlEN2syMHZ2TG9jVW9EaVRhYlElM0QlM0Q="),
+    END_POINT_URL: window.atob(`aHR0cDovL2FwaXMuZGF0YS5nby5rci8xMzYwMDAwL1ZpbGFnZUZjc3RJbmZvU2VydmljZS9nZXRWaWxhZ2VGY3N0`),
 };
 
 export {config};

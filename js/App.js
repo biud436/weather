@@ -54,7 +54,7 @@ export default class App extends EventEmitter {
         // 서울의 위도와 경도를 지정합니다.
         const lat = 37.532600;
         const lon = 127.024612;
-        const API = `f5f963901bc7a7df56b73323ca00ae47`;
+        const API = window.atob(`ZjVmOTYzOTAxYmM3YTdkZjU2YjczMzIzY2EwMGFlNDc=`);
         const lang = navigator.language.slice(3).toLowerCase();
         const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API}&lang=${lang}`;
 
