@@ -2,7 +2,7 @@
 향후 5일 간의 날씨를 확인하는 사이트입니다. 
 
 # 설치 방법
-이 사이트를 구축에는 Open Weather Map의 API 키와 Node.js가 필요합니다. 
+이 사이트 구축에는 Open Weather Map의 API 키와 Node.js가 필요합니다. 
 
 먼저 저장소를 복제하거나 압축 파일로 내려 받으시기 바랍니다.
 
