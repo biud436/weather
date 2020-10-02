@@ -53,7 +53,8 @@ class WeatherComponent extends Component {
             days.push(daily[i].dt);
         }
 
-        $(".city-field div").text(`${this._config.timezone}`);
+        $(".city-field div").text(`${this._config.timezone}`)
+                            .append(`<a href="https://github.com/biud436/biud436.github.com/tree/master/weather"><img src="./images/GitHub-Mark-Light-32px.png"></a>`);
 
         $("article").each((index, elem) => {
             $(elem)

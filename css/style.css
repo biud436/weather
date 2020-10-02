@@ -32,6 +32,19 @@ header {
 header div {
     font-size: 1.5em;
     font-weight: bold;
+    position: relative;
+}
+
+header div a {
+    height: 1.5em;
+    line-height: 1.5em;
+    position: relative;
+}
+
+header div a img {
+    height: 100%;
+    position: absolute;
+    margin-left: 0.5em;
 }
 
 section {
