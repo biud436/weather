@@ -98,7 +98,7 @@ cordova build android --release -- --keystore=android.jks --storePassword=androi
 그러나 위 명령도 너무 길어서 기억할 수가 없습니다. 다음과 같이 ```build.json 파일```을 만들어두면 쉽게 빌드가 가능해집니다.
 
 ```json
-{ /* build.json */
+{
   "android": {
       "debug": {
           "keystore": "android.jks",
