@@ -129,7 +129,8 @@ cordova build android --release --buildConfig=build.json
 
 ```xml
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="me.biud436.testgame" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="me.biud436.testgame" version="1.0.0" xmlns="http://www.w3.org/ns/widgets"
+    xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>TestGame</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -138,11 +139,11 @@ cordova build android --release --buildConfig=build.json
         RS Games.
     </author>
     <content src="index.html" />
-	<preference name="Orientation" value="landscape"/>
-	<preference name="Fullscreen" value="true" />
-	<preference name="AllowInlineMediaPlayback" value="true"/>
-	<preference name="android-minSdkVersion" value="19"/>
-	<preference name="android-targetSdkVersion" value="29"/>	
+    <preference name="Orientation" value="landscape" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
+    <preference name="android-minSdkVersion" value="19" />
+    <preference name="android-targetSdkVersion" value="29" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -161,3 +162,11 @@ cordova build android --release --buildConfig=build.json
     <engine name="android" spec="^7.1.4" />
 </widget>
 ```
+
+가로 모드로 강제로 만드려면 다음 라인을 추가해야 합니다.
+
+```xml
+<preference name="Orientation" value="landscape" />
+```
+
+첫 빌드에는 CPU 파워에 따라 약 4~6분 정도 소요되며 두 번째 빌드부턴 굉장히 빨라집니다.
