@@ -35,7 +35,7 @@ export default class App extends EventEmitter {
             lineCap: "round",
             temperatureSymbol: "\u00B0",
             smooth: true, // 차트의 계산 현상을 없애고 부드럽게 만듭니다.
-            fillChart: true, // 차트를 채울 지 결정합니다.
+            fillChart: false, // 차트를 채울 지 결정합니다.
             pattern: { 
                 valid: true, // 차트 배경에 이미지를 지정합니다.
                 src: './images/background2.webp'

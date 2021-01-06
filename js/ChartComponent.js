@@ -152,7 +152,7 @@ class ChartComponent extends Component {
         // 이동 행렬을 통해 패딩 값을 설정합니다.
         // 이 값은 캔버스의 가로 길이를 10등분한 값입니다.
 
-        ctx.setTransform(1, 0, 0, 1, this._canvas.width / padding, 0);
+        ctx.setTransform(1, 0, 0, 1, this._canvas.width / padding,  -(this._canvas.height / 3));
 
         // 안티 앨리어싱을 설정합니다.
         if(smooth) {
@@ -200,14 +200,18 @@ class ChartComponent extends Component {
         }
 
         // 마지막 라인을 찾습니다.
-        const lastLine = [...lines].pop();
+        let items = [...lines];
+        const lastLine = items.pop();
+        const secondPoint = items.pop();
 
         // 마지막 라인의 끝점으로부터 캔버스 하단까지 연결하여 도형을 완성합니다.
         if(fillChart) {
-            
+            const restore = ctx.getTransform();
+            ctx.lineTo(lastLine.x, -lastLine.y);
             ctx.lineTo(lastLine.x, this._canvas.height);
-            ctx.lineTo(0, this._canvas.height);
             ctx.closePath();   
+            
+            ctx.setTransform(restore);
 
             // 이 값이 활성화되어있으면 스크롤링 패턴을 사용하여 반복 루프 효과를 구현합니다.
             if(pattern.valid) {
