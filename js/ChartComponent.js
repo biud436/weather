@@ -202,7 +202,6 @@ class ChartComponent extends Component {
         // 마지막 라인을 찾습니다.
         let items = [...lines];
         const lastLine = items.pop();
-        const secondPoint = items.pop();
 
         // 마지막 라인의 끝점으로부터 캔버스 하단까지 연결하여 도형을 완성합니다.
         if(fillChart) {
