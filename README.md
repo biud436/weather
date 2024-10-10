@@ -11,7 +11,7 @@
 
 # 사용 기술
 
-JavaScript, HTML, CSS
+JavaScript, HTML, CSS, Canvas API
 
 # 설치 방법
 
@@ -22,5 +22,8 @@ npm run build
 
 # Change Log
 
-- 2024년 10월 11일 : OpenWeatherMap의 OneCall 2.5가 deprecated되어 API 변경
-- 2020년 09월 25일 : 프로젝트 생성
+- 2024년 10월 11일
+  - Forecast API로 변경
+  - Vite 환경에서 빌드하도록 변경
+- 2020년 09월 25일
+  - 프로젝트 생성 및 공개
