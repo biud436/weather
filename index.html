@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html lang='ko'>
-
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-    <script src="https://kit.fontawesome.com/a99df0f94f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a99df0f94f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <header class="city-field">
-            <div>로딩중</div>
-        </header>
-        <section class="weather-renderer">
-            <article>로딩중</article>
-            <article>로딩중</article>
-            <article>로딩중</article>
-            <article>로딩중</article>
-            <article>로딩중</article>
-        </section>
-        <footer class="temperature-field">
-            <canvas id="main-canvas">
-                HTML5 캔버스를 지원하지 않는 브라우저입니다.
-            </canvas>
-        </footer>
+      <header class="city-field">
+        <div>로딩중</div>
+      </header>
+      <section class="weather-renderer">
+        <article>로딩중</article>
+        <article>로딩중</article>
+        <article>로딩중</article>
+        <article>로딩중</article>
+        <article>로딩중</article>
+      </section>
+      <footer class="temperature-field">
+        <canvas id="main-canvas">
+          HTML5 캔버스를 지원하지 않는 브라우저입니다.
+        </canvas>
+      </footer>
     </div>
     <div id="darken"></div>
     <div id="loading" class="spinner"></div>
-    <script src="./dist/bundle.js"></script>
-</body>
-
+    <script type="module" src="/js/index.js"></script>
+  </body>
 </html>
